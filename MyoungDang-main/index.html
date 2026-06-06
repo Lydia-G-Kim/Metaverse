@@ -113,108 +113,187 @@
         <button class="btn" onclick="moveTo('lrod')">메인으로 돌아가기</button>
       </div>
     </section>
+    <section class="page" id="preference">
+      <div class="simple-page">
+        <h1 class="page-title">라이프스타일 설정</h1>
+        <p class="page-desc">
+          나에게 맞는 명당 추천을 위해 생활 기준을 선택해주세요.
+        </p>
+
+        <div class="preference-box">
+          <label>원하는 지역</label>
+          <select id="prefRegion">
+            <option>강남구</option>
+            <option>강동구</option>
+            <option>강북구</option>
+            <option>강서구</option>
+            <option>관악구</option>
+            <option>광진구</option>
+            <option>구로구</option>
+            <option>금천구</option>
+            <option>노원구</option>
+            <option>도봉구</option>
+            <option>동대문구</option>
+            <option>동작구</option>
+            <option>마포구</option>
+            <option>서대문구</option>
+            <option>서초구</option>
+            <option>성동구</option>
+            <option>성북구</option>
+            <option>송파구</option>
+            <option>양천구</option>
+            <option>영등포구</option>
+            <option>용산구</option>
+            <option>은평구</option>
+            <option>종로구</option>
+            <option>중구</option>
+            <option>중랑구</option>
+          </select>
+
+          <label>예산 범위</label>
+          <select id="prefBudget">
+            <option>2억~3억</option>
+            <option>3억~5억</option>
+            <option selected>5억~7억</option>
+            <option>7억 이상</option>
+          </select>
+
+          <label>가장 중요한 조건</label>
+          <div class="preference-options">
+            <button type="button" class="pref-option active">직주근접</button>
+            <button type="button" class="pref-option">역세권</button>
+            <button type="button" class="pref-option">생활 인프라</button>
+            <button type="button" class="pref-option">조용한 주거지</button>
+            <button type="button" class="pref-option">한강 접근</button>
+          </div>
+
+          <label>소음 민감도</label>
+          <select id="prefNoise">
+            <option>낮음</option>
+            <option selected>보통</option>
+            <option>높음</option>
+          </select>
+
+          <label>선호 주거형태</label>
+          <select id="prefHouseType">
+            <option selected>오피스텔</option>
+            <option>아파트</option>
+            <option>빌라</option>
+            <option>도시형 생활주택</option>
+          </select>
+
+          <button class="btn" onclick="savePreference()">명당 분석 시작하기</button>
+        </div>
+      </div>
+    </section>
     <section class="page active" id="lrod">
       <section class="grid">
-        <aside class="card">
+        <aside class="card locked-card">
           <h2>L-Rod</h2>
           <p class="sub">용산구 라이프스타일 레이더</p>
-          <div class="radar"></div>
-          <p class="sub">박준혁님의 생활 기준이 용산구 공간 분석에 반영됩니다.</p>
+
+          <div class="radar locked-radar"></div>
+
+          <p class="sub">
+            로그인 후 나의 생활 기준을 기반으로 공간 분석을 시작할 수 있습니다.
+          </p>
+
           <div class="tags">
             <span class="tag">직장 접근성</span>
-            <span class="tag">한강 접근</span>
-            <span class="tag">조용한 주거지</span>
             <span class="tag">역세권</span>
             <span class="tag">생활 인프라</span>
+            <span class="tag">소음 민감도</span>
           </div>
+
+          <button class="btn" onclick="moveTo('login')">로그인 후 분석 시작</button>
         </aside>
-        <main class="card main">
-          <h2>L-Rod 스캔 진행 중...</h2>
-          <p class="sub">용산구 주변 환경과 공간 데이터를 분석하고 있습니다.</p>
+
+        <main class="card main locked-main">
+          <h2>L-Rod 스캔 대기 중...</h2>
+          <p class="sub">
+            로그인 후 원하는 지역, 예산, 생활 인프라, 소음 민감도 등을 입력하면
+            개인화된 명당 분석이 시작됩니다.
+          </p>
+
           <div class="scan-box">
-            <strong>용산 푸르지오 써밋 오피스텔</strong>
-            <p class="sub">고급형 후보 · 신용산역 도보권 분석 중</p>
+            <strong>추천 후보 분석 전</strong>
+            <p class="sub">로그인 또는 회원가입 후 생활 기준을 설정해주세요.</p>
           </div>
+
           <div class="status-row">
-            <div class="status">강남 접근 24분</div>
-            <div class="status">한강 접근 8분</div>
-            <div class="status">생활 인프라 93%</div>
-            <div class="status">소음 보통</div>
+            <div class="status">지역 선택 대기</div>
+            <div class="status">예산 입력 대기</div>
+            <div class="status">생활 기준 대기</div>
+            <div class="status">분석 전</div>
           </div>
-          <div class="property">
-            <img
-              src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&amp;fit=crop&amp;w=800&amp;q=80" />
+
+          <div class="property locked-property">
+            <div class="locked-placeholder">
+              🔒
+            </div>
+
             <div>
-              <h2>용산 푸르지오 써밋 오피스텔</h2>
-              <p class="sub">한강로2가 · 고급형 오피스텔</p>
-              <div class="price">5억 ~ 7억</div>
-              <p class="sub">신용산역 도보권 · 직주근접 우수</p>
-              <button class="btn" onclick="moveTo('teo')">환경 데이터 보기</button>
+              <h2>개인화 추천 결과 대기</h2>
+              <p class="sub">
+                로그인 후 설문을 완료하면 사용자 조건에 맞는 후보지가 표시됩니다.
+              </p>
+              <button class="btn" onclick="moveTo('signup')">회원가입하고 시작하기</button>
             </div>
           </div>
         </main>
-        <aside class="card chat-card">
+
+        <aside class="card chat-card locked-chat">
           <h2>Master Tao</h2>
           <p class="sub">AI 입지 분석 상담사</p>
+
           <div class="chat-tabs">
             <div class="chat-tab active">종합 분석</div>
             <div class="chat-tab">환경 분석</div>
             <div class="chat-tab">생활 인프라</div>
             <div class="chat-tab">추천 사항</div>
           </div>
-          <div class="chat-window" id="chatWindow">
+
+          <div class="chat-window">
             <div class="chat-row bot-chat">
               <div class="avatar">T</div>
               <div class="bubble">
-                박준혁님, 분석 결과를 바탕으로 이 공간은 전반적으로 매우 좋은 환경을 제공합니다.
+                로그인 후 Master Tao와 개인 맞춤형 입지 상담을 시작할 수 있습니다.
               </div>
             </div>
+
             <div class="check-list">
-              · 남향이라 일조는 우수하지만 여름철 실내 온도 상승이 있을 수 있어요.<br />
-              · 반경 500m 내 생활 인프라가 잘 갖춰져 있어요.
+              · 원하는 지역을 입력하면 후보지를 분석합니다.<br />
+              · 예산과 생활 패턴에 따라 적합도를 계산합니다.<br />
+              · 소음, 역세권, 생활 인프라 기준을 반영합니다.
             </div>
-            <div class="quick-question" onclick="quickAsk('주변 소음은 어떤가요?')">주변 소음은 어떤가요?</div>
-            <div class="quick-question" onclick="quickAsk('출퇴근은 괜찮나요?')">출퇴근은 괜찮나요?</div>
-            <div class="quick-question" onclick="quickAsk('최종 추천 이유는?')">최종 추천 이유는?</div>
           </div>
-          <div class="chat-input-box">
-            <input id="chatInput" onkeydown="handleEnter(event)" placeholder="무엇이든 물어보세요..." type="text" />
-            <button class="send-btn" onclick="sendMessage()">➤</button>
+
+          <div class="chat-input-box locked-input">
+            <input type="text" placeholder="로그인 후 질문할 수 있어요." disabled />
+            <button class="send-btn" onclick="moveTo('login')">➤</button>
           </div>
         </aside>
-        <section class="card" onclick="moveTo('teo')" style="cursor:pointer;">
+
+        <section class="card locked-card" onclick="moveTo('login')" style="cursor:pointer;">
           <h2>Teo</h2>
-          <p class="sub">용산구 공간 환경 탐색</p>
+          <p class="sub">로그인 후 공간 환경 탐색을 시작할 수 있습니다.</p>
+
           <div class="filters">
-            <div class="filter active">일조</div>
+            <div class="filter">일조</div>
             <div class="filter">소음</div>
             <div class="filter">교통</div>
             <div class="filter">공기질</div>
             <div class="filter">상권</div>
           </div>
         </section>
-        <section class="card bottom-map" onclick="moveTo('map')" style="cursor:pointer;">
+
+        <section class="card bottom-map locked-card" onclick="moveTo('login')" style="cursor:pointer;">
           <h2>Tao Map</h2>
-          <p class="sub">용산구 후보 공간 비교 지도</p>
-          <div class="places">
-            <div class="place active">
-              <img
-                src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
-              <div class="place-title">용산 푸르지오 써밋</div>
-              <div class="place-score">적합도 92 · 5억~7억</div>
-            </div>
-            <div class="place">
-              <img
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
-              <div class="place-title">시티파크 오피스텔</div>
-              <div class="place-score">적합도 88 · 4억~6억</div>
-            </div>
-            <div class="place">
-              <img
-                src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
-              <div class="place-title">용산시티하우스</div>
-              <div class="place-score">적합도 84 · 2.4억~2.9억</div>
-            </div>
+          <p class="sub">로그인 후 후보 공간 비교 지도를 확인할 수 있습니다.</p>
+
+          <div class="locked-map">
+            🔒 아직 추천 후보가 없습니다.<br />
+            로그인 후 생활 기준을 설정하면 후보지가 표시됩니다.
           </div>
         </section>
       </section>

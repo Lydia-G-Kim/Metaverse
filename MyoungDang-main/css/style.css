@@ -620,3 +620,90 @@ h2 {
   font-size: 14px;
   font-weight: 700;
 }
+
+.locked-card {
+  opacity: 0.95;
+}
+
+.locked-radar {
+  filter: grayscale(0.2);
+  opacity: 0.6;
+}
+
+.locked-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.12);
+  pointer-events: none;
+}
+
+.locked-property {
+  grid-template-columns: 140px 1fr;
+}
+
+.locked-placeholder {
+  height: 150px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+
+.locked-input input {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.locked-map {
+  margin-top: 30px;
+  padding: 34px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  color: #cbd5e1;
+  line-height: 1.7;
+  text-align: center;
+}
+.preference-box {
+  max-width: 620px;
+  margin-top: 36px;
+}
+
+.preference-box label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.preference-box select {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  font-size: 15px;
+  outline: none;
+}
+
+.preference-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pref-option {
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.pref-option.active {
+  background: linear-gradient(135deg, #34d399, #7c3aed);
+  color: white;
+  border: none;
+}

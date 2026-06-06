@@ -52,7 +52,14 @@ function loginUser() {
   loginError.textContent = "";
 
   setLoggedInUser(email, "1인 가구", "직장인");
-  moveTo("lrod");
+
+  const hasPreference = localStorage.getItem("hasPreference");
+
+  if (hasPreference) {
+    moveTo("lrod");
+  } else {
+    moveTo("preference");
+  }
 }
 
 function signupUser() {
@@ -71,7 +78,7 @@ function signupUser() {
   signupError.textContent = "";
 
   setLoggedInUser(name, household, job);
-  moveTo("lrod");
+  moveTo("preference");
 }
 
 function setLoggedInUser(name, household, job) {
@@ -103,5 +110,29 @@ function logoutUser() {
     `;
   }
 
-  moveTo("login");
+  moveTo("lrod");
 }
+function savePreference() {
+  const region = document.getElementById("prefRegion").value;
+  const budget = document.getElementById("prefBudget").value;
+  const noise = document.getElementById("prefNoise").value;
+  const houseType = document.getElementById("prefHouseType").value;
+
+  const activeOptions = document.querySelectorAll(".pref-option.active");
+  const priorities = Array.from(activeOptions).map(option => option.textContent);
+
+  localStorage.setItem("hasPreference", "true");
+  localStorage.setItem("region", region);
+  localStorage.setItem("budget", budget);
+  localStorage.setItem("noise", noise);
+  localStorage.setItem("houseType", houseType);
+  localStorage.setItem("priorities", priorities.join(", "));
+
+  moveTo("lrod");
+}
+
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("pref-option")) {
+    event.target.classList.toggle("active");
+  }
+});
