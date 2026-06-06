@@ -53,13 +53,7 @@ function loginUser() {
 
   setLoggedInUser(email, "1인 가구", "직장인");
 
-  const hasPreference = localStorage.getItem("hasPreference");
-
-  if (hasPreference) {
-    moveTo("lrod");
-  } else {
-    moveTo("preference");
-  }
+  moveTo("preference");
 }
 
 function signupUser() {
@@ -114,15 +108,29 @@ function logoutUser() {
 }
 function savePreference() {
   const region = document.getElementById("prefRegion").value;
-  const budget = document.getElementById("prefBudget").value;
+  const dealType = document.getElementById("prefDealType").value;
   const noise = document.getElementById("prefNoise").value;
   const houseType = document.getElementById("prefHouseType").value;
+
+  let budget = "";
+
+  if (dealType === "월세") {
+    const deposit = document.getElementById("prefDeposit").value;
+    const monthlyRent = document.getElementById("prefMonthlyRent").value;
+    budget = `보증금 ${deposit} / 월세 ${monthlyRent}`;
+
+    localStorage.setItem("deposit", deposit);
+    localStorage.setItem("monthlyRent", monthlyRent);
+  } else {
+    budget = document.getElementById("prefBudget").value;
+  }
 
   const activeOptions = document.querySelectorAll(".pref-option.active");
   const priorities = Array.from(activeOptions).map(option => option.textContent);
 
   localStorage.setItem("hasPreference", "true");
   localStorage.setItem("region", region);
+  localStorage.setItem("dealType", dealType);
   localStorage.setItem("budget", budget);
   localStorage.setItem("noise", noise);
   localStorage.setItem("houseType", houseType);
@@ -136,3 +144,16 @@ document.addEventListener("click", function (event) {
     event.target.classList.toggle("active");
   }
 });
+function changeDealType() {
+  const dealType = document.getElementById("prefDealType").value;
+  const saleBudgetBox = document.getElementById("saleBudgetBox");
+  const rentBudgetBox = document.getElementById("rentBudgetBox");
+
+  if (dealType === "월세") {
+    saleBudgetBox.style.display = "none";
+    rentBudgetBox.style.display = "block";
+  } else {
+    saleBudgetBox.style.display = "block";
+    rentBudgetBox.style.display = "none";
+  }
+}
