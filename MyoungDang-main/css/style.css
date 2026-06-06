@@ -561,3 +561,62 @@ h2 {
   font-weight: 800;
   cursor: pointer;
 }
+
+.user-profile {
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.logout-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #ef4444;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.logout-btn:hover {
+  opacity: 0.85;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mypage-btn,
+.logout-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mypage-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.mypage-btn:hover,
+.logout-btn:hover {
+  opacity: 0.85;
+}
+
+
+.form-error {
+  margin-top: 12px;
+  color: #ef4444;
+  font-size: 14px;
+  font-weight: 700;
+}

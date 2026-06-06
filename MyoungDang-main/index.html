@@ -41,10 +41,12 @@
           <input id="loginPassword" type="password" placeholder="비밀번호" />
 
           <button class="btn" onclick="loginUser()">로그인</button>
+          <p id="loginError" class="form-error"></p>
 
           <p class="auth-link">
             아직 계정이 없나요?
             <span onclick="moveTo('signup')">회원가입하기</span>
+          <p id="signupError" class="form-error"></p>
           </p>
         </div>
       </div>
@@ -58,7 +60,7 @@
         </p>
 
         <div class="auth-box">
-          <input id="signupName" type="text" placeholder="이름" value="박준혁" />
+          <input id="signupName" type="text" placeholder="이름" />
           <input id="signupEmail" type="email" placeholder="이메일" />
           <input id="signupPassword" type="password" placeholder="비밀번호" />
 
@@ -82,6 +84,33 @@
             <span onclick="moveTo('login')">로그인하기</span>
           </p>
         </div>
+      </div>
+    </section>
+    <section class="page" id="mypage">
+      <div class="simple-page">
+        <h1 class="page-title">마이페이지</h1>
+        <p class="page-desc">
+          박준혁님의 생활 기준과 추천 결과를 확인할 수 있습니다.
+        </p>
+
+        <div class="content-grid">
+          <div class="info-card">
+            <h3>회원 정보</h3>
+            <p id="mypageUserInfo">로그인 후 확인할 수 있습니다.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>주거 선호</h3>
+            <p>직장 접근성, 조용한 주거지, 생활 인프라를 중요하게 봅니다.</p>
+          </div>
+
+          <div class="info-card">
+            <h3>최근 추천 결과</h3>
+            <p>용산 푸르지오 써밋 오피스텔 · 적합도 92점</p>
+          </div>
+        </div>
+
+        <button class="btn" onclick="moveTo('lrod')">메인으로 돌아가기</button>
       </div>
     </section>
     <section class="page active" id="lrod">
