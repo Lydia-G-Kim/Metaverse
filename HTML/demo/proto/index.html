@@ -496,6 +496,28 @@
       color: #374151;
     }
 
+    .auth-box {
+      max-width: 500px;
+      margin: 50px auto;
+    }
+
+    .auth-box input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .auth-box select {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+    }
+
     .small-text {
       font-size: 13px;
       color: #6b7280;
@@ -531,6 +553,9 @@
       </div>
 
       <div class="steps">
+        <div class="step" onclick="moveTo('login')">로그인</div>
+        <div class="step" onclick="moveTo('signup')">회원가입</div>
+
         <div class="step active" onclick="moveTo('lrod')">1 L-Rod</div>
         <div class="step" onclick="moveTo('teo')">2 Teo</div>
         <div class="step" onclick="moveTo('master')">3 Master Tao</div>
@@ -540,7 +565,62 @@
 
       <div class="user">박준혁 · 1인 가구 · 직장인</div>
     </header>
+    <section id="login" class="page">
+      <div class="simple-page">
 
+        <h1 class="page-title">로그인</h1>
+
+        <p class="page-desc">
+          명당 서비스를 이용하려면 로그인해주세요.
+        </p>
+
+        <div class="auth-box">
+
+          <input type="email" placeholder="이메일">
+
+          <input type="password" placeholder="비밀번호">
+
+          <button class="btn" onclick="moveTo('lrod')">
+            로그인
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="signup" class="page">
+      <div class="simple-page">
+
+        <h1 class="page-title">회원가입</h1>
+
+        <p class="page-desc">
+          생활 패턴에 맞는 명당 추천을 위해 기본 정보를 입력해주세요.
+        </p>
+
+        <div class="auth-box">
+
+          <input type="text" placeholder="이름">
+
+          <input type="email" placeholder="이메일">
+
+          <input type="password" placeholder="비밀번호">
+
+          <input type="number" placeholder="나이">
+
+          <select>
+            <option>1인 가구</option>
+            <option>신혼부부</option>
+            <option>가족 거주</option>
+          </select>
+
+          <button class="btn" onclick="moveTo('lrod')">
+            회원가입
+          </button>
+
+        </div>
+
+      </div>
+    </section>
     <section id="lrod" class="page active">
       <section class="grid">
         <aside class="card">
@@ -878,11 +958,13 @@
       document.getElementById(pageId).classList.add("active");
 
       const stepMap = {
-        lrod: 0,
-        teo: 1,
-        master: 2,
-        map: 3,
-        decision: 4
+        login: 0,
+        signup: 1,
+        lrod: 2,
+        teo: 3,
+        master: 4,
+        map: 5,
+        decision: 6
       };
 
       steps[stepMap[pageId]].classList.add("active");
