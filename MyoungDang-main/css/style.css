@@ -1795,7 +1795,7 @@ h2 {
 }
 
 /* ===================== */
-/* Matrix Rain over Seoul Map */
+/* Matrix Rain over Seoul Map - dense version */
 /* ===================== */
 
 #lrod .main {
@@ -1818,7 +1818,7 @@ h2 {
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
-  opacity: 1;
+  opacity: 0.78;
   mix-blend-mode: screen;
 }
 
@@ -1829,99 +1829,198 @@ h2 {
 
 #lrod .matrix-rain span {
   position: absolute;
-  top: -360px;
-  color: rgba(52, 211, 153, 0.42);
+  top: -420px;
+  color: rgba(52, 211, 153, 0.62);
   font-family: monospace;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.18;
   letter-spacing: 1px;
   text-align: center;
   text-shadow:
-    0 0 8px rgba(52, 211, 153, 0.85),
-    0 0 18px rgba(52, 211, 153, 0.35);
-  filter: blur(0.15px);
+    0 0 7px rgba(52, 211, 153, 0.9),
+    0 0 16px rgba(52, 211, 153, 0.45);
+  filter: blur(0.05px);
   animation-name: matrixFall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
+/* 24개 컬럼: 빽빽하게 배치 */
 #lrod .matrix-rain span:nth-child(1) {
-  left: 4%;
+  left: 2%;
   animation-duration: 2.1s;
   animation-delay: -0.4s;
-  opacity: .45;
+  opacity: .38;
 }
 
 #lrod .matrix-rain span:nth-child(2) {
-  left: 13%;
+  left: 6%;
   animation-duration: 1.5s;
   animation-delay: -1.0s;
-  opacity: .3;
+  opacity: .55;
 }
 
 #lrod .matrix-rain span:nth-child(3) {
-  left: 22%;
+  left: 10%;
   animation-duration: 2.7s;
   animation-delay: -1.7s;
-  opacity: .5;
-}
-
-#lrod .matrix-rain span:nth-child(4) {
-  left: 34%;
-  animation-duration: 1.8s;
-  animation-delay: -0.8s;
-  opacity: .28;
-}
-
-#lrod .matrix-rain span:nth-child(5) {
-  left: 45%;
-  animation-duration: 2.3s;
-  animation-delay: -1.4s;
   opacity: .42;
 }
 
+#lrod .matrix-rain span:nth-child(4) {
+  left: 14%;
+  animation-duration: 1.8s;
+  animation-delay: -0.8s;
+  opacity: .62;
+}
+
+#lrod .matrix-rain span:nth-child(5) {
+  left: 18%;
+  animation-duration: 2.3s;
+  animation-delay: -1.4s;
+  opacity: .45;
+}
+
 #lrod .matrix-rain span:nth-child(6) {
-  left: 56%;
+  left: 22%;
   animation-duration: 1.4s;
   animation-delay: -0.6s;
-  opacity: .35;
+  opacity: .58;
 }
 
 #lrod .matrix-rain span:nth-child(7) {
-  left: 67%;
+  left: 26%;
   animation-duration: 2.5s;
   animation-delay: -1.9s;
-  opacity: .48;
+  opacity: .4;
 }
 
 #lrod .matrix-rain span:nth-child(8) {
-  left: 77%;
+  left: 30%;
   animation-duration: 1.7s;
   animation-delay: -0.2s;
-  opacity: .32;
+  opacity: .66;
 }
 
 #lrod .matrix-rain span:nth-child(9) {
-  left: 87%;
+  left: 34%;
   animation-duration: 2.0s;
   animation-delay: -1.2s;
-  opacity: .44;
+  opacity: .48;
 }
 
 #lrod .matrix-rain span:nth-child(10) {
-  left: 95%;
+  left: 38%;
   animation-duration: 1.3s;
   animation-delay: -0.9s;
+  opacity: .56;
+}
+
+#lrod .matrix-rain span:nth-child(11) {
+  left: 42%;
+  animation-duration: 2.4s;
+  animation-delay: -1.5s;
+  opacity: .36;
+}
+
+#lrod .matrix-rain span:nth-child(12) {
+  left: 46%;
+  animation-duration: 1.6s;
+  animation-delay: -0.5s;
+  opacity: .68;
+}
+
+#lrod .matrix-rain span:nth-child(13) {
+  left: 50%;
+  animation-duration: 2.2s;
+  animation-delay: -1.8s;
+  opacity: .42;
+}
+
+#lrod .matrix-rain span:nth-child(14) {
+  left: 54%;
+  animation-duration: 1.45s;
+  animation-delay: -0.7s;
+  opacity: .6;
+}
+
+#lrod .matrix-rain span:nth-child(15) {
+  left: 58%;
+  animation-duration: 2.8s;
+  animation-delay: -2.0s;
+  opacity: .35;
+}
+
+#lrod .matrix-rain span:nth-child(16) {
+  left: 62%;
+  animation-duration: 1.75s;
+  animation-delay: -1.1s;
+  opacity: .64;
+}
+
+#lrod .matrix-rain span:nth-child(17) {
+  left: 66%;
+  animation-duration: 2.35s;
+  animation-delay: -1.6s;
+  opacity: .43;
+}
+
+#lrod .matrix-rain span:nth-child(18) {
+  left: 70%;
+  animation-duration: 1.25s;
+  animation-delay: -0.3s;
+  opacity: .7;
+}
+
+#lrod .matrix-rain span:nth-child(19) {
+  left: 74%;
+  animation-duration: 2.05s;
+  animation-delay: -1.3s;
+  opacity: .48;
+}
+
+#lrod .matrix-rain span:nth-child(20) {
+  left: 78%;
+  animation-duration: 1.55s;
+  animation-delay: -0.8s;
+  opacity: .62;
+}
+
+#lrod .matrix-rain span:nth-child(21) {
+  left: 82%;
+  animation-duration: 2.6s;
+  animation-delay: -2.1s;
   opacity: .34;
+}
+
+#lrod .matrix-rain span:nth-child(22) {
+  left: 86%;
+  animation-duration: 1.7s;
+  animation-delay: -0.9s;
+  opacity: .66;
+}
+
+#lrod .matrix-rain span:nth-child(23) {
+  left: 90%;
+  animation-duration: 2.15s;
+  animation-delay: -1.7s;
+  opacity: .44;
+}
+
+#lrod .matrix-rain span:nth-child(24) {
+  left: 95%;
+  animation-duration: 1.35s;
+  animation-delay: -0.4s;
+  opacity: .6;
 }
 
 @keyframes matrixFall {
   0% {
-    transform: translateY(-360px);
+    transform: translateY(-420px);
   }
 
   100% {
-    transform: translateY(1040px);
+    transform: translateY(1060px);
   }
 }
