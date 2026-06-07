@@ -344,19 +344,59 @@ function activatePersonalizedResult() {
   }
 
   if (propertyBox) {
-    propertyBox.innerHTML = `
-      <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=800&q=80" />
+    propertyBox.className = "top-recommend-card";
 
-      <div>
-        <h2>용산 푸르지오 써밋 오피스텔</h2>
-        <p class="sub">한강로2가 · 고급형 오피스텔 · ${houseType} 선호 반영</p>
-        <div class="price">5억 ~ 7억</div>
-        <p class="sub">
-          신용산역 도보권 · 직주근접 우수 · 생활 인프라 풍부
-        </p>
-        <button class="btn" onclick="moveTo('teo')">환경 데이터 보기</button>
+    propertyBox.innerHTML = `
+    <div class="rank-badge">1</div>
+
+    <img 
+      class="top-recommend-img"
+      src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80"
+      alt="용산 푸르지오 써밋 오피스텔"
+    />
+
+    <div class="top-recommend-info">
+      <div class="recommend-label">🏆 추천 1위</div>
+
+      <h2>용산 푸르지오 써밋</h2>
+
+      <p class="recommend-meta">
+        용산구 한강로2가 <span>|</span> 오피스텔 <span>|</span> 84㎡
+      </p>
+
+      <div class="price">5억 ~ 7억</div>
+
+      <div class="mini-score-row">
+        <div>
+          <span>역세권</span>
+          <strong>95</strong>
+        </div>
+        <div>
+          <span>직주근접</span>
+          <strong>93</strong>
+        </div>
+        <div>
+          <span>생활인프라</span>
+          <strong>94</strong>
+        </div>
+        <div>
+          <span>환경접근성</span>
+          <strong>91</strong>
+        </div>
       </div>
-    `;
+    </div>
+
+    <div class="score-circle" style="--score: 92;">
+      <div class="score-inner">
+        <strong>92<span>점</span></strong>
+        <small>적합도</small>
+      </div>
+    </div>
+
+    <button class="outline-data-btn" onclick="moveTo('teo')">
+      환경 데이터 보기
+    </button>
+  `;
   }
 
   if (masterBubble) {
@@ -398,7 +438,7 @@ function activatePersonalizedResult() {
     `;
   }
 
-  if(taoMapPreviewSection) {
+  if (taoMapPreviewSection) {
     taoMapPreviewSection.classList.remove("locked-card");
     taoMapPreviewSection.removeAttribute("onclick");
     taoMapPreviewSection.style.cursor = "default";
