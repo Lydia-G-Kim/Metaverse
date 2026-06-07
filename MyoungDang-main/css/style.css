@@ -736,3 +736,68 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
 }
+.tao-preview-cards {
+  margin-top: 22px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.tao-preview-card {
+  width: 230px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tao-preview-card:hover {
+  transform: translateY(-4px);
+  border-color: #34d399;
+}
+
+.tao-preview-card.active {
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.09);
+}
+
+.tao-preview-card img {
+  width: 100%;
+  height: 118px;
+  object-fit: cover;
+  border-radius: 13px;
+  margin-bottom: 12px;
+}
+
+.tao-preview-card h4 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.tao-preview-meta {
+  color: #9ca3af;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.tao-preview-score {
+  color: #86efac;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tao-preview-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.12);
+  color: #a7f3d0;
+  font-size: 11px;
+  font-weight: 700;
+}

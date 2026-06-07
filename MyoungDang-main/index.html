@@ -332,11 +332,12 @@
           </div>
         </section>
 
-        <section class="card bottom-map locked-card" onclick="moveTo('login')" style="cursor:pointer;">
+        <section class="card bottom-map locked-card" id="taoMapPreviewSection" onclick="moveTo('login')"
+          style="cursor:pointer;">
           <h2>Tao Map</h2>
-          <p class="sub">로그인 후 후보 공간 비교 지도를 확인할 수 있습니다.</p>
+          <p class="sub" id="taoMapPreviewDesc">로그인 후 후보 공간 비교 지도를 확인할 수 있습니다.</p>
 
-          <div class="locked-map">
+          <div class="locked-map" id="taoMapPreview">
             🔒 아직 추천 후보가 없습니다.<br />
             로그인 후 생활 기준을 설정하면 후보지가 표시됩니다.
           </div>

@@ -290,6 +290,8 @@ function activatePersonalizedResult() {
   const checkList = document.querySelector("#lrod .check-list");
   const chatInputBox = document.querySelector("#lrod .chat-input-box");
   const lockedMap = document.querySelector("#lrod .locked-map");
+  const taoMapPreviewSection = document.getElementById("taoMapPreviewSection");
+  const taoMapPreviewDesc = document.getElementById("taoMapPreviewDesc");
 
   if (mainCard) {
     mainCard.classList.add("analyzed");
@@ -396,13 +398,39 @@ function activatePersonalizedResult() {
     `;
   }
 
+  if(taoMapPreviewSection) {
+    taoMapPreviewSection.classList.remove("locked-card");
+    taoMapPreviewSection.removeAttribute("onclick");
+    taoMapPreviewSection.style.cursor = "default";
+  }
+
+  if (taoMapPreviewDesc) {
+    taoMapPreviewDesc.textContent = `${region} 후보 공간을 거래유형, 방 구조, 가격대별로 비교합니다.`;
+  }
+
   if (lockedMap) {
-    lockedMap.innerHTML = `
-      <strong>추천 후보 3곳</strong><br /><br />
-      1위 용산 푸르지오 써밋 오피스텔 · 적합도 92<br />
-      2위 시티파크 오피스텔 · 적합도 88<br />
-      3위 용산시티하우스 · 적합도 84
-    `;
+    lockedMap.className = "tao-preview-cards";
+
+    const places = getTaoMapPreviewPlaces(dealType);
+
+    lockedMap.innerHTML = places.map((place, index) => `
+    <div class="tao-preview-card ${index === 0 ? "active" : ""}" onclick="moveTo('map')">
+      <img src="${place.image}" alt="${place.name}" />
+
+      <h4>${place.name}</h4>
+
+      <div class="tao-preview-meta">
+        ${place.dealType} · ${place.roomType} · ${place.area}<br />
+        ${place.price}
+      </div>
+
+      <div class="tao-preview-score">
+        적합도 ${place.score}
+      </div>
+
+      <span class="tao-preview-tag">${place.tag}</span>
+    </div>
+  `).join("");
   }
 }
 function quickAsk(question) {
@@ -485,4 +513,108 @@ function deleteAccount() {
   alert("회원탈퇴가 완료되었습니다.");
 
   location.reload();
+}
+function getTaoMapPreviewPlaces(dealType) {
+  if (dealType === "월세") {
+    return [
+      {
+        name: "용산역 원룸 오피스텔",
+        area: "한강로2가",
+        dealType: "월세",
+        roomType: "원룸형",
+        price: "보증금 1,000~3,000 / 월세 60~80",
+        score: 89,
+        tag: "월세형",
+        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        name: "신용산 투룸 오피스텔",
+        area: "한강로3가",
+        dealType: "월세",
+        roomType: "투룸형",
+        price: "보증금 5,000~1억 / 월세 80~100",
+        score: 86,
+        tag: "직주근접",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        name: "후암동 소형 주거지",
+        area: "후암동",
+        dealType: "월세",
+        roomType: "원룸형",
+        price: "보증금 500~1,000 / 월세 40~60",
+        score: 82,
+        tag: "가성비",
+        image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+  }
+
+  if (dealType === "전세") {
+    return [
+      {
+        name: "시티파크 오피스텔",
+        area: "한강로3가",
+        dealType: "전세",
+        roomType: "투룸형",
+        price: "전세 3억~5억",
+        score: 90,
+        tag: "중간형",
+        image: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        name: "용산시티하우스",
+        area: "한강로3가",
+        dealType: "전세",
+        roomType: "원룸형",
+        price: "전세 2억~3억",
+        score: 86,
+        tag: "1인 가구",
+        image: "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        name: "효창동 소형 아파트",
+        area: "효창동",
+        dealType: "전세",
+        roomType: "투룸형",
+        price: "전세 3억~5억",
+        score: 84,
+        tag: "조용한 주거지",
+        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+  }
+
+  return [
+    {
+      name: "용산 푸르지오 써밋 오피스텔",
+      area: "한강로2가",
+      dealType: "매매",
+      roomType: "투룸형",
+      price: "5억~7억",
+      score: 92,
+      tag: "고급형",
+      image: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      name: "시티파크 오피스텔",
+      area: "한강로3가",
+      dealType: "매매",
+      roomType: "원룸~투룸형",
+      price: "4억~6억",
+      score: 88,
+      tag: "중간형",
+      image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      name: "용산시티하우스",
+      area: "한강로3가",
+      dealType: "매매",
+      roomType: "원룸형",
+      price: "2.4억~2.9억",
+      score: 84,
+      tag: "가성비형",
+      image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"
+    }
+  ];
 }
