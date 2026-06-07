@@ -68,7 +68,15 @@ function loginUser() {
   loginError.textContent = "";
 
   setLoggedInUser(savedName, savedHousehold, savedJob);
-  moveTo("preference");
+
+  const hasPreference = localStorage.getItem("hasPreference");
+
+  if (hasPreference) {
+    activatePersonalizedResult();
+    moveTo("lrod");
+  } else {
+    moveTo("preference");
+  }
 }
 
 function signupUser() {
