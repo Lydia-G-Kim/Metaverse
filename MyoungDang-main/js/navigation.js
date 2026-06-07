@@ -351,7 +351,7 @@ function activatePersonalizedResult() {
 
     <img 
       class="top-recommend-img"
-      src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80"
+      src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80"
       alt="용산 푸르지오 써밋 오피스텔"
     />
 

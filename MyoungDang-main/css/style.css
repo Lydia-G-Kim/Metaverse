@@ -82,7 +82,7 @@ header {
 
 .grid {
   display: grid;
-  grid-template-columns: 300px 1fr 390px;
+  grid-template-columns: 225px minmax(0, 1fr) 330px;
   grid-template-rows: auto auto;
   gap: 16px;
 }
@@ -132,8 +132,8 @@ h2 {
 
 .radar {
   position: relative;
-  width: 245px;
-  height: 245px;
+  width: 185px;
+  height: 185px;
   margin: 34px auto;
   border-radius: 50%;
   overflow: hidden;
@@ -1425,4 +1425,52 @@ h2 {
 
 .outline-data-btn:hover {
   background: rgba(52, 211, 153, 0.14);
+}
+
+.chat-card {
+  padding: 22px;
+}
+
+.chat-card h2 {
+  font-size: 22px;
+}
+
+.chat-tab {
+  font-size: 12px;
+}
+
+.bubble {
+  font-size: 13px;
+}
+
+.check-list {
+  font-size: 13px;
+}
+
+.quick-question {
+  font-size: 12px;
+  padding: 9px 12px;
+}
+
+.top-recommend-info h2 {
+  font-size: 23px;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.recommend-meta {
+  font-size: 13px;
+}
+
+.top-recommend-card .price {
+  font-size: 28px;
+}
+
+.mini-score-row span {
+  font-size: 10.5px;
+}
+
+.mini-score-row strong {
+  font-size: 16px;
 }
