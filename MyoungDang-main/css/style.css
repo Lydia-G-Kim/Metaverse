@@ -140,12 +140,10 @@ h2 {
 
   background:
     radial-gradient(circle at center, rgba(52, 211, 153, 1) 0 6px, transparent 7px),
-    repeating-radial-gradient(
-      circle at center,
+    repeating-radial-gradient(circle at center,
       transparent 0 43px,
       rgba(52, 211, 153, 0.16) 44px,
-      transparent 45px
-    ),
+      transparent 45px),
     linear-gradient(90deg, transparent 49.7%, rgba(52, 211, 153, 0.14) 50%, transparent 50.3%),
     linear-gradient(0deg, transparent 49.7%, rgba(52, 211, 153, 0.14) 50%, transparent 50.3%),
     radial-gradient(circle at center, rgba(20, 184, 166, 0.08), rgba(3, 10, 25, 0.98) 72%);
@@ -166,23 +164,21 @@ h2 {
   border-radius: 50%;
 
   background:
-    conic-gradient(
-      from 0deg,
+    conic-gradient(from 0deg,
       rgba(52, 211, 153, 0.95) 0deg,
       rgba(52, 211, 153, 0.58) 10deg,
       rgba(52, 211, 153, 0.18) 28deg,
       transparent 52deg,
-      transparent 360deg
-    );
+      transparent 360deg);
 
   filter:
-    drop-shadow(0 0 8px rgba(52, 211, 153, 0.8))
-    drop-shadow(0 0 14px rgba(125, 211, 252, 0.25));
+    drop-shadow(0 0 8px rgba(52, 211, 153, 0.8)) drop-shadow(0 0 14px rgba(125, 211, 252, 0.25));
 
   animation: radarSweep 4.5s linear infinite;
 }
 
 /* 맑은 밤하늘 별 */
+/* 맑은 밤하늘 별 - 그룹별로 다르게 깜빡임 */
 .radar::after {
   content: "";
   position: absolute;
@@ -191,11 +187,11 @@ h2 {
   pointer-events: none;
 
   background-image:
-    radial-gradient(circle, rgba(255,255,255,1) 0 1.7px, transparent 2.8px),
-    radial-gradient(circle, rgba(190,255,235,0.95) 0 1.3px, transparent 2.4px),
-    radial-gradient(circle, rgba(255,255,255,0.85) 0 0.9px, transparent 1.8px),
-    radial-gradient(circle, rgba(52,211,153,0.9) 0 0.8px, transparent 1.6px),
-    radial-gradient(circle, rgba(125,211,252,0.75) 0 0.8px, transparent 1.5px);
+    radial-gradient(circle, rgba(255, 255, 255, 1) 0 1.8px, transparent 2.8px),
+    radial-gradient(circle, rgba(190, 255, 235, 0.95) 0 1.3px, transparent 2.3px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.9px),
+    radial-gradient(circle, rgba(52, 211, 153, 0.9) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle, rgba(125, 211, 252, 0.85) 0 0.8px, transparent 1.5px);
 
   background-size:
     96px 96px,
@@ -211,40 +207,92 @@ h2 {
     12px 38px,
     88px 68px;
 
-  opacity: 0.95;
-  animation: starTwinkle 0.75s ease-in-out infinite alternate;
+  opacity: 1;
+
+  animation:
+    starBlinkA 0.9s ease-in-out infinite,
+    starBlinkB 1.35s ease-in-out infinite,
+    starBlinkC 1.9s ease-in-out infinite;
 }
 
-@keyframes starTwinkle {
+/* 큰 흰 별 그룹: 확 꺼졌다 켜짐 */
+@keyframes starBlinkA {
   0% {
-    opacity: 0.38;
+    opacity: 0.05;
     filter:
-      drop-shadow(0 0 1px rgba(255,255,255,0.3))
-      drop-shadow(0 0 2px rgba(52,211,153,0.25));
+      drop-shadow(0 0 0px rgba(255, 255, 255, 0)) drop-shadow(0 0 0px rgba(52, 211, 153, 0));
   }
 
-  45% {
+  35% {
     opacity: 1;
     filter:
-      drop-shadow(0 0 5px rgba(255,255,255,0.95))
-      drop-shadow(0 0 9px rgba(52,211,153,0.75));
+      drop-shadow(0 0 6px rgba(255, 255, 255, 1)) drop-shadow(0 0 12px rgba(52, 211, 153, 0.8));
+  }
+
+  70% {
+    opacity: 0.25;
+    filter:
+      drop-shadow(0 0 1px rgba(255, 255, 255, 0.25)) drop-shadow(0 0 2px rgba(52, 211, 153, 0.2));
   }
 
   100% {
-    opacity: 0.55;
+    opacity: 0.75;
     filter:
-      drop-shadow(0 0 2px rgba(255,255,255,0.55))
-      drop-shadow(0 0 5px rgba(52,211,153,0.45));
+      drop-shadow(0 0 3px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 6px rgba(52, 211, 153, 0.45));
   }
 }
 
-@keyframes radarSweep {
-  from {
-    transform: rotate(0deg);
+/* 민트 별 그룹: 느리게 반짝 */
+@keyframes starBlinkB {
+  0% {
+    opacity: 0.8;
   }
 
-  to {
-    transform: rotate(360deg);
+  25% {
+    opacity: 0.12;
+  }
+
+  55% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.02;
+  }
+
+  100% {
+    opacity: 0.65;
+  }
+}
+
+/* 작은 별 그룹: 랜덤하게 깜빡이는 듯한 리듬 */
+@keyframes starBlinkC {
+  0% {
+    opacity: 0.2;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  32% {
+    opacity: 0.03;
+  }
+
+  48% {
+    opacity: 0.7;
+  }
+
+  63% {
+    opacity: 0;
+  }
+
+  77% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.35;
   }
 }
 
@@ -732,7 +780,8 @@ h2 {
 }
 
 .locked-radar {
-  opacity: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 .locked-main::after {
@@ -904,4 +953,242 @@ h2 {
   color: #a7f3d0;
   font-size: 11px;
   font-weight: 700;
+}
+
+/* ===================== */
+/* Radar Star Layers */
+/* ===================== */
+
+.radar {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 레이더 빔이 별 위로 보이도록 */
+.radar::before {
+  z-index: 3;
+  animation: radarSweep 4s linear infinite;
+}
+
+/* 기존 after 별 효과는 꺼두기 */
+.radar::after {
+  display: none;
+}
+
+.radar-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0;
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.95),
+    0 0 9px rgba(125, 211, 252, 0.55),
+    0 0 14px rgba(52, 211, 153, 0.45);
+}
+
+/* 별 위치 */
+.s1 {
+  top: 18%;
+  left: 28%;
+  animation: twinkleSlow 3.4s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.s2 {
+  top: 27%;
+  left: 62%;
+  animation: twinkleFast 1.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.s3 {
+  top: 38%;
+  left: 42%;
+  animation: twinkleMid 2.2s ease-in-out infinite;
+  animation-delay: 1.1s;
+}
+
+.s4 {
+  top: 53%;
+  left: 25%;
+  animation: twinkleFast 1.7s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.s5 {
+  top: 66%;
+  left: 58%;
+  animation: twinkleSlow 3.1s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.s6 {
+  top: 42%;
+  left: 72%;
+  animation: twinkleMid 2.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.s7 {
+  top: 74%;
+  left: 43%;
+  animation: twinkleFast 1.2s ease-in-out infinite;
+  animation-delay: 1.9s;
+}
+
+.s8 {
+  top: 31%;
+  left: 23%;
+  animation: twinkleMid 2.8s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.s9 {
+  top: 58%;
+  left: 76%;
+  animation: twinkleSlow 3.7s ease-in-out infinite;
+  animation-delay: 2.1s;
+}
+
+.s10 {
+  top: 82%;
+  left: 54%;
+  animation: twinkleFast 1.6s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.s11 {
+  top: 22%;
+  left: 47%;
+  animation: twinkleMid 2.1s ease-in-out infinite;
+  animation-delay: 1.4s;
+}
+
+.s12 {
+  top: 69%;
+  left: 31%;
+  animation: twinkleSlow 3.9s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.s13 {
+  top: 47%;
+  left: 55%;
+  animation: twinkleFast 1.5s ease-in-out infinite;
+  animation-delay: 2.4s;
+}
+
+.s14 {
+  top: 36%;
+  left: 67%;
+  animation: twinkleMid 2.6s ease-in-out infinite;
+  animation-delay: 1.7s;
+}
+
+.s15 {
+  top: 61%;
+  left: 46%;
+  animation: twinkleSlow 3.2s ease-in-out infinite;
+  animation-delay: 2.8s;
+}
+
+/* 빠르게 깜빡이는 별 */
+@keyframes twinkleFast {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  18% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+
+  38% {
+    opacity: 0.15;
+    transform: scale(0.9);
+  }
+
+  60% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+
+  82% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+/* 보통 속도 별 */
+@keyframes twinkleMid {
+
+  0%,
+  100% {
+    opacity: 0.08;
+    transform: scale(0.8);
+  }
+
+  35% {
+    opacity: 0.95;
+    transform: scale(1.25);
+  }
+
+  55% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  78% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+/* 느리게 깜빡이는 별 */
+@keyframes twinkleSlow {
+
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: scale(0.85);
+  }
+
+  30% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+
+  52% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  74% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+}
+
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
