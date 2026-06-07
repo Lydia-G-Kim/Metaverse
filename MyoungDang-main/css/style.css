@@ -1532,12 +1532,13 @@ h2 {
   aspect-ratio: 1 / 1;
   transform: none;
 }
+
 /* ===================== */
 /* L-Rod 최종 미세 조정 */
 /* ===================== */
 
 /* 0. 로그인 전/후 메인 3개 영역 높이 동일 고정 */
-#lrod .grid > .locked-card:first-child,
+#lrod .grid>.locked-card:first-child,
 #lrod .main,
 #lrod .chat-card {
   height: 620px;
@@ -1545,22 +1546,18 @@ h2 {
 }
 
 /* 1. 왼쪽 L-Rod 배경 더 어둡게 */
-#lrod .grid > .locked-card:first-child {
+#lrod .grid>.locked-card:first-child {
   background:
-    radial-gradient(
-      circle at center,
-      rgba(52,211,153,0.04) 0%,
-      transparent 45%
-    ),
-    linear-gradient(
-      145deg,
+    radial-gradient(circle at center,
+      rgba(52, 211, 153, 0.04) 0%,
+      transparent 45%),
+    linear-gradient(145deg,
       #040b15 0%,
-      #0a1322 100%
-    );
+      #0a1322 100%);
 
   box-shadow:
-    inset 0 0 60px rgba(52,211,153,0.04),
-    0 20px 40px rgba(0,0,0,0.4);
+    inset 0 0 60px rgba(52, 211, 153, 0.04),
+    0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* 2. 중앙 L-Rod 안에서 추천 카드를 하단으로 내리기 */
@@ -1569,8 +1566,8 @@ h2 {
   flex-direction: column;
 }
 
-#lrod .main > h2,
-#lrod .main > .sub,
+#lrod .main>h2,
+#lrod .main>.sub,
 #lrod .scan-box,
 #lrod .status-row {
   flex-shrink: 0;
@@ -1649,6 +1646,7 @@ h2 {
   line-height: 1;
   transform: none;
 }
+
 /* ===================== */
 /* L-Rod 중앙영역 로그인 전/후 비율 통일 */
 /* ===================== */
@@ -1661,13 +1659,13 @@ h2 {
 }
 
 /* 제목/설명 영역 */
-#lrod .main > h2 {
+#lrod .main>h2 {
   font-size: 24px;
   margin-bottom: 8px;
   flex-shrink: 0;
 }
 
-#lrod .main > .sub {
+#lrod .main>.sub {
   font-size: 13px;
   line-height: 1.55;
   margin-bottom: 0;
@@ -1794,4 +1792,136 @@ h2 {
   bottom: 14px;
   padding: 9px 14px;
   font-size: 12px;
+}
+
+/* ===================== */
+/* Matrix Rain over Seoul Map */
+/* ===================== */
+
+#lrod .main {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#lrod .main::before {
+  z-index: 0;
+}
+
+#lrod .locked-main::after {
+  z-index: 1;
+}
+
+#lrod .matrix-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 1;
+  mix-blend-mode: screen;
+}
+
+#lrod .main>*:not(.matrix-rain) {
+  position: relative;
+  z-index: 3;
+}
+
+#lrod .matrix-rain span {
+  position: absolute;
+  top: -360px;
+  color: rgba(52, 211, 153, 0.42);
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow:
+    0 0 8px rgba(52, 211, 153, 0.85),
+    0 0 18px rgba(52, 211, 153, 0.35);
+  filter: blur(0.15px);
+  animation-name: matrixFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#lrod .matrix-rain span:nth-child(1) {
+  left: 4%;
+  animation-duration: 2.1s;
+  animation-delay: -0.4s;
+  opacity: .45;
+}
+
+#lrod .matrix-rain span:nth-child(2) {
+  left: 13%;
+  animation-duration: 1.5s;
+  animation-delay: -1.0s;
+  opacity: .3;
+}
+
+#lrod .matrix-rain span:nth-child(3) {
+  left: 22%;
+  animation-duration: 2.7s;
+  animation-delay: -1.7s;
+  opacity: .5;
+}
+
+#lrod .matrix-rain span:nth-child(4) {
+  left: 34%;
+  animation-duration: 1.8s;
+  animation-delay: -0.8s;
+  opacity: .28;
+}
+
+#lrod .matrix-rain span:nth-child(5) {
+  left: 45%;
+  animation-duration: 2.3s;
+  animation-delay: -1.4s;
+  opacity: .42;
+}
+
+#lrod .matrix-rain span:nth-child(6) {
+  left: 56%;
+  animation-duration: 1.4s;
+  animation-delay: -0.6s;
+  opacity: .35;
+}
+
+#lrod .matrix-rain span:nth-child(7) {
+  left: 67%;
+  animation-duration: 2.5s;
+  animation-delay: -1.9s;
+  opacity: .48;
+}
+
+#lrod .matrix-rain span:nth-child(8) {
+  left: 77%;
+  animation-duration: 1.7s;
+  animation-delay: -0.2s;
+  opacity: .32;
+}
+
+#lrod .matrix-rain span:nth-child(9) {
+  left: 87%;
+  animation-duration: 2.0s;
+  animation-delay: -1.2s;
+  opacity: .44;
+}
+
+#lrod .matrix-rain span:nth-child(10) {
+  left: 95%;
+  animation-duration: 1.3s;
+  animation-delay: -0.9s;
+  opacity: .34;
+}
+
+@keyframes matrixFall {
+  0% {
+    transform: translateY(-360px);
+  }
+
+  100% {
+    transform: translateY(1040px);
+  }
 }
