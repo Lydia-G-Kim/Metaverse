@@ -1812,14 +1812,22 @@ h2 {
   z-index: 1;
 }
 
+/* 기본값: 로그인 전에는 숨김 */
 #lrod .matrix-rain {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.78;
+  opacity: 0;
   mix-blend-mode: screen;
+  visibility: hidden;
+}
+
+/* 로그인 후 analyzed 상태일 때만 표시 */
+#lrod .main.analyzed .matrix-rain {
+  opacity: 0.78;
+  visibility: visible;
 }
 
 #lrod .main>*:not(.matrix-rain) {
