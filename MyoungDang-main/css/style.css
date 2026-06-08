@@ -898,72 +898,6 @@ h2 {
   background-repeat: no-repeat;
 }
 
-.tao-preview-cards {
-  margin-top: 22px;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.tao-preview-card {
-  width: 230px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 18px;
-  padding: 12px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.tao-preview-card:hover {
-  transform: translateY(-4px);
-  border-color: #34d399;
-}
-
-.tao-preview-card.active {
-  border-color: #34d399;
-  background: rgba(52, 211, 153, 0.09);
-}
-
-.tao-preview-card img {
-  width: 100%;
-  height: 118px;
-  object-fit: cover;
-  border-radius: 13px;
-  margin-bottom: 12px;
-}
-
-.tao-preview-card h4 {
-  color: white;
-  font-size: 15px;
-  margin-bottom: 8px;
-  line-height: 1.35;
-}
-
-.tao-preview-meta {
-  color: #9ca3af;
-  font-size: 12px;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.tao-preview-score {
-  color: #86efac;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.tao-preview-tag {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: rgba(52, 211, 153, 0.12);
-  color: #a7f3d0;
-  font-size: 11px;
-  font-weight: 700;
-}
-
 /* ===================== */
 /* Radar Star Layers */
 /* ===================== */
@@ -2066,14 +2000,7 @@ h2 {
   color: #cbd5e1;
 }
 
-/* ===================== */
 /* Tao Map 하단 가로형 미리보기 */
-/* ===================== */
-
-#lrod .bottom-map {
-  min-height: 220px;
-  padding: 22px 26px;
-}
 
 #lrod #taoMapPreviewSection {
   position: relative;
@@ -2106,35 +2033,29 @@ h2 {
 }
 
 #lrod .tao-preview-wide {
-  margin-top: 10px;
+  margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 22px;
 }
 
 #lrod .tao-preview-wide .tao-preview-card {
   position: relative;
   width: 100%;
-  min-height: 138px;
+  min-height: 150px;
   padding: 0;
   display: grid;
-  grid-template-columns: 150px 1fr 18px;
-  gap: 16px;
+  grid-template-columns: 170px 1fr 20px;
+  gap: 18px;
   align-items: center;
   overflow: hidden;
   border-radius: 18px;
   background: rgba(15, 23, 42, 0.68);
 }
 
-#lrod .tao-preview-wide .tao-preview-card.active {
-  border-color: rgba(52, 211, 153, 0.9);
-  background: rgba(52, 211, 153, 0.08);
-  box-shadow: 0 0 18px rgba(52, 211, 153, 0.12);
-}
-
 #lrod .tao-preview-wide .tao-preview-card img {
-  width: 150px;
-  height: 138px;
+  width: 170px;
+  height: 150px;
   margin: 0;
   border-radius: 0;
   object-fit: cover;
@@ -2144,12 +2065,12 @@ h2 {
   position: absolute;
   top: 12px;
   left: 12px;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 8px;
   background: linear-gradient(135deg, #34d399, #7c3aed);
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -2157,55 +2078,8 @@ h2 {
   z-index: 2;
 }
 
-#lrod .tao-preview-info h4 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: white;
-  line-height: 1.25;
-}
-
-#lrod .tao-preview-info .tao-preview-meta {
-  font-size: 13px;
-  color: #9ca3af;
-  margin-bottom: 8px;
-}
-
-#lrod .tao-preview-info .tao-preview-score {
-  font-size: 16px;
-  color: #86efac;
-  font-weight: 900;
-  margin-bottom: 10px;
-}
-
-#lrod .tao-preview-info .tao-preview-tag {
-  margin-top: 0;
-  padding: 7px 12px;
-  font-size: 12px;
-}
-
-#lrod .tao-preview-arrow {
-  color: rgba(148, 163, 184, 0.45);
-  font-size: 28px;
-}
-/* Tao Map 카드 글씨 크기 축소 */
-#lrod .tao-preview-info h4 {
-  font-size: 15px;
-  line-height: 1.25;
-  margin-bottom: 6px;
-}
-
-#lrod .tao-preview-info .tao-preview-meta {
-  font-size: 12px;
-  line-height: 1.45;
-  margin-bottom: 6px;
-}
-
-#lrod .tao-preview-info .tao-preview-score {
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-#lrod .tao-preview-info .tao-preview-tag {
-  font-size: 11px;
-  padding: 6px 10px;
+#lrod .bottom-map {
+  grid-column: 1 / -1;
+  min-height: 240px;
+  padding: 24px 28px;
 }

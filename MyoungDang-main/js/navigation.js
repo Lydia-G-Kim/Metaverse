@@ -319,7 +319,7 @@ function activatePersonalizedResult() {
   }
 
   if (lrodTitle) {
-    lrodTitle.textContent = "L-Rod 개인화 분석 완료";
+    lrodTitle.textContent = "Teo 개인화 분석 완료";
   }
 
   if (lrodDesc) {
