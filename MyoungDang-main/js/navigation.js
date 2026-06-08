@@ -636,7 +636,7 @@ function getTaoMapPreviewPlaces(dealType) {
       price: "5억~7억",
       score: 92,
       tag: "고급형",
-      image: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80"
     },
     {
       name: "시티파크 오피스텔",
@@ -646,7 +646,7 @@ function getTaoMapPreviewPlaces(dealType) {
       price: "4억~6억",
       score: 88,
       tag: "중간형",
-      image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
     },
     {
       name: "용산시티하우스",
@@ -656,7 +656,7 @@ function getTaoMapPreviewPlaces(dealType) {
       price: "2.4억~2.9억",
       score: 84,
       tag: "가성비형",
-      image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80"
     }
   ];
 }
