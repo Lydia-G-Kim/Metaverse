@@ -446,26 +446,31 @@ function activatePersonalizedResult() {
   }
 
   if (lockedMap) {
-    lockedMap.className = "tao-preview-cards";
+    lockedMap.className = "tao-preview-cards tao-preview-wide";
 
     const places = getTaoMapPreviewPlaces(dealType);
 
     lockedMap.innerHTML = places.map((place, index) => `
     <div class="tao-preview-card ${index === 0 ? "active" : ""}" onclick="moveTo('map')">
+      <div class="tao-rank">${index + 1}</div>
+
       <img src="${place.image}" alt="${place.name}" />
 
-      <h4>${place.name}</h4>
+      <div class="tao-preview-info">
+        <h4>${place.name}</h4>
 
-      <div class="tao-preview-meta">
-        ${place.dealType} · ${place.roomType} · ${place.area}<br />
-        ${place.price}
+        <div class="tao-preview-meta">
+          ${place.price} · ${place.roomType}
+        </div>
+
+        <div class="tao-preview-score">
+          적합도 ${place.score}
+        </div>
+
+        <span class="tao-preview-tag">${place.tag}</span>
       </div>
 
-      <div class="tao-preview-score">
-        적합도 ${place.score}
-      </div>
-
-      <span class="tao-preview-tag">${place.tag}</span>
+      <div class="tao-preview-arrow">›</div>
     </div>
   `).join("");
   }

@@ -1729,16 +1729,18 @@ h2 {
 }
 
 #lrod .locked-property h2 {
-  font-size: 22px;
+  font-size: 21px;
+  margin-bottom: 4px;
 }
 
 #lrod .locked-property .sub {
   font-size: 13px;
-  margin-bottom: 2px;
+  line-height: 1.45;
+  margin-bottom: 0;
 }
 
 #lrod .locked-property .btn {
-  margin-top: 8px;
+  margin-top: 6px;
   padding: 11px 18px;
   font-size: 12px;
 }
@@ -2041,6 +2043,7 @@ h2 {
     transform: translateY(1060px);
   }
 }
+
 /* AI 분석 대기 박스 미세 조정 */
 #lrod .scan-box {
   width: 260px;
@@ -2061,4 +2064,126 @@ h2 {
   font-size: 13px;
   line-height: 1.75;
   color: #cbd5e1;
+}
+
+/* ===================== */
+/* Tao Map 하단 가로형 미리보기 */
+/* ===================== */
+
+#lrod .bottom-map {
+  min-height: 220px;
+  padding: 22px 26px;
+}
+
+#lrod #taoMapPreviewSection {
+  position: relative;
+}
+
+#lrod #taoMapPreviewSection>h2 {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 24px;
+}
+
+#lrod #taoMapPreviewDesc {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+#lrod #taoMapPreviewSection::after {
+  content: "전체 후보 비교하기  →";
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.55);
+  color: #e5e7eb;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+#lrod .tao-preview-wide {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+#lrod .tao-preview-wide .tao-preview-card {
+  position: relative;
+  width: 100%;
+  min-height: 138px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 150px 1fr 18px;
+  gap: 16px;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.68);
+}
+
+#lrod .tao-preview-wide .tao-preview-card.active {
+  border-color: rgba(52, 211, 153, 0.9);
+  background: rgba(52, 211, 153, 0.08);
+  box-shadow: 0 0 18px rgba(52, 211, 153, 0.12);
+}
+
+#lrod .tao-preview-wide .tao-preview-card img {
+  width: 150px;
+  height: 138px;
+  margin: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+#lrod .tao-rank {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #34d399, #7c3aed);
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+#lrod .tao-preview-info h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: white;
+  line-height: 1.25;
+}
+
+#lrod .tao-preview-info .tao-preview-meta {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+#lrod .tao-preview-info .tao-preview-score {
+  font-size: 16px;
+  color: #86efac;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+#lrod .tao-preview-info .tao-preview-tag {
+  margin-top: 0;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+
+#lrod .tao-preview-arrow {
+  color: rgba(148, 163, 184, 0.45);
+  font-size: 28px;
 }
