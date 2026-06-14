@@ -2000,7 +2000,15 @@ h2 {
   color: #cbd5e1;
 }
 
-/* Tao Map 하단 가로형 미리보기 */
+/* ===================== */
+/* Tao Map Final Reference Style */
+/* ===================== */
+
+#lrod .bottom-map {
+  grid-column: 1 / -1;
+  min-height: 255px;
+  padding: 24px 28px;
+}
 
 #lrod #taoMapPreviewSection {
   position: relative;
@@ -2008,7 +2016,7 @@ h2 {
 
 #lrod #taoMapPreviewSection>h2 {
   display: inline-block;
-  margin-right: 12px;
+  margin-right: 14px;
   font-size: 24px;
 }
 
@@ -2021,8 +2029,8 @@ h2 {
 #lrod #taoMapPreviewSection::after {
   content: "전체 후보 비교하기  →";
   position: absolute;
-  top: 22px;
-  right: 26px;
+  top: 24px;
+  right: 28px;
   padding: 11px 18px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.28);
@@ -2033,44 +2041,49 @@ h2 {
 }
 
 #lrod .tao-preview-wide {
-  margin-top: 14px;
+  margin-top: 18px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-#lrod .tao-preview-wide .tao-preview-card {
-  position: relative;
-  width: 100%;
-  min-height: 150px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 170px 1fr 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 18px;
-  background: rgba(15, 23, 42, 0.68);
 }
 
-#lrod .tao-preview-wide .tao-preview-card img {
+#lrod .tao-preview-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr) 74px;
+  gap: 16px;
+  align-items: center;
+  min-height: 150px;
+  padding: 0 16px 0 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+#lrod .tao-preview-card.active {
+  border-color: rgba(52, 211, 153, 0.9);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+#lrod .tao-preview-card img {
   width: 170px;
   height: 150px;
-  margin: 0;
-  border-radius: 0;
   object-fit: cover;
+  border-radius: 0;
+  margin: 0;
 }
 
 #lrod .tao-rank {
   position: absolute;
   top: 12px;
   left: 12px;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   background: linear-gradient(135deg, #34d399, #7c3aed);
   color: white;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -2078,8 +2091,77 @@ h2 {
   z-index: 2;
 }
 
-#lrod .bottom-map {
-  grid-column: 1 / -1;
-  min-height: 240px;
-  padding: 24px 28px;
+#lrod .tao-preview-info {
+  min-width: 0;
+}
+
+#lrod .tao-preview-info h4 {
+  font-size: 16px;
+  line-height: 1.3;
+  margin-bottom: 7px;
+  color: #fff;
+  word-break: keep-all;
+}
+
+#lrod .tao-preview-meta {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+#lrod .tao-score-ring {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background:
+    conic-gradient(#34d399 calc(var(--score) * 1%), rgba(52, 211, 153, 0.16) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  justify-self: end;
+}
+
+#lrod .tao-score-ring>div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(8, 18, 32, 0.96);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#lrod .tao-score-ring strong {
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+}
+
+#lrod .tao-score-ring strong span {
+  font-size: 10px;
+  margin-left: 1px;
+}
+
+#lrod .tao-score-ring small {
+  margin-top: 3px;
+  font-size: 9px;
+  color: #d1fae5;
+  font-weight: 800;
+}
+
+#lrod .tao-preview-arrow,
+#lrod .tao-preview-tag {
+  display: none;
+}
+
+/* 로그인 전 Tao Map 버튼 숨김 */
+#lrod #taoMapPreviewSection.locked-card::after {
+  display: none;
+}
+
+/* 로그인 후에는 버튼 표시 */
+#lrod #taoMapPreviewSection:not(.locked-card)::after {
+  display: block;
 }

@@ -346,11 +346,9 @@ function activatePersonalizedResult() {
     propertyBox.innerHTML = `
     <div class="rank-badge">1</div>
 
-    <img 
-      class="top-recommend-img"
-      src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80"
-      alt="용산 푸르지오 써밋 오피스텔"
-    />
+    <img class="top-recommend-img"
+    src="./img/md_ys_ps.png"
+    alt="용산 푸르지오 써밋 오피스텔"/>
 
     <div class="top-recommend-info">
       <div class="recommend-label">🏆 추천 1위</div>
@@ -452,25 +450,26 @@ function activatePersonalizedResult() {
 
     lockedMap.innerHTML = places.map((place, index) => `
     <div class="tao-preview-card ${index === 0 ? "active" : ""}" onclick="moveTo('map')">
-      <div class="tao-rank">${index + 1}</div>
+    <div class="tao-rank">${index + 1}</div>
 
-      <img src="${place.image}" alt="${place.name}" />
+    <img src="${place.image}" alt="${place.name}" />
 
-      <div class="tao-preview-info">
-        <h4>${place.name}</h4>
+    <div class="tao-preview-info">
+      <h4>${place.name}</h4>
 
-        <div class="tao-preview-meta">
-          ${place.price} · ${place.roomType}
-        </div>
-
-        <div class="tao-preview-score">
-          적합도 ${place.score}
-        </div>
-
-        <span class="tao-preview-tag">${place.tag}</span>
+      <div class="tao-preview-meta">
+        ${place.area}<br />
+        ${place.houseType || "오피스텔"} · ${place.size || "84㎡"}<br />
+        ${place.dealType} ${place.price}
       </div>
+    </div>
 
-      <div class="tao-preview-arrow">›</div>
+    <div class="tao-score-ring" style="--score:${place.score};">
+      <div>
+        <strong>${place.score}<span>점</span></strong>
+        <small>적합도</small>
+      </div>
+    </div>
     </div>
   `).join("");
   }
@@ -632,31 +631,43 @@ function getTaoMapPreviewPlaces(dealType) {
       name: "용산 푸르지오 써밋 오피스텔",
       area: "한강로2가",
       dealType: "매매",
+
+      houseType: "오피스텔",
+      size: "84㎡",
+
       roomType: "투룸형",
       price: "5억~7억",
       score: 92,
       tag: "고급형",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80"
+      image: "./img/md_ys_ps.png"
     },
     {
       name: "시티파크 오피스텔",
       area: "한강로3가",
       dealType: "매매",
+
+      houseType: "오피스텔",
+      size: "59㎡",
+
       roomType: "원룸~투룸형",
       price: "4억~6억",
       score: 88,
       tag: "중간형",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80"
     },
     {
       name: "용산시티하우스",
       area: "한강로3가",
       dealType: "매매",
+
+      houseType: "아파트",
+      size: "75㎡",
+
       roomType: "원룸형",
       price: "2.4억~2.9억",
       score: 84,
       tag: "가성비형",
-      image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80"
+      image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
     }
   ];
 }
